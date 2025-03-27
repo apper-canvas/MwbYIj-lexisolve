@@ -30,7 +30,7 @@ function App() {
             animate={{ rotate: 0 }}
             className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
           >
-            LexiSolve
+            Wordle
           </motion.div>
         </div>
         <motion.button
@@ -51,7 +51,7 @@ function App() {
       </main>
       
       <footer className="py-6 px-6 text-center text-surface-500 dark:text-surface-400 border-t border-surface-200 dark:border-surface-700">
-        <p>© {new Date().getFullYear()} LexiSolve. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Wordle. All rights reserved.</p>
       </footer>
     </div>
   )
