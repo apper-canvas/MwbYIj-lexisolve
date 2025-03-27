@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     // In a real app, this would come from an API or be generated server-side
     // For this MVP, we'll use a simple word from a predefined list
-    const wordList = ['REACT', 'VITES', 'GAMES', 'WORDS', 'LEXIS', 'SOLVE']
+    const wordList = ['FAST', 'GAME', 'WORD', 'FIND', 'TIME', 'PLAY']
     const today = new Date().toDateString()
     
     // Use the date to deterministically select a word (same word for same day)
@@ -28,7 +28,7 @@ const Home = () => {
       >
         <h1 className="text-4xl font-bold mb-3 text-gradient">Daily Word Challenge</h1>
         <p className="text-surface-600 dark:text-surface-300 max-w-lg mx-auto">
-          Guess the 5-letter word in six tries. After each guess, the color of the tiles will
+          Guess the 4-letter word in six tries. After each guess, the color of the tiles will
           change to show how close your guess was to the word.
         </p>
         
@@ -77,7 +77,7 @@ const Home = () => {
               <div className="space-y-4">
                 <p>Guess the word in 6 tries.</p>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li>Each guess must be a valid 5-letter word.</li>
+                  <li>Each guess must be a valid 4-letter word.</li>
                   <li>The color of the tiles will change to show how close your guess was to the word.</li>
                 </ul>
                 

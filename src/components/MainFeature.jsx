@@ -2,15 +2,15 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { RefreshCw, Share2, Trophy } from 'lucide-react'
 
-// Dictionary of valid 5-letter words (abbreviated for MVP)
+// Dictionary of valid 4-letter words (abbreviated for MVP)
 const VALID_WORDS = [
-  'APPLE', 'BEACH', 'CHAIR', 'DANCE', 'EARTH', 'FLAME', 'GRAPE', 'HOUSE', 
-  'IGLOO', 'JUICE', 'KNIFE', 'LEMON', 'MUSIC', 'NIGHT', 'OCEAN', 'PIANO', 
-  'QUEEN', 'RIVER', 'SNAKE', 'TABLE', 'UMBRELLA', 'VIOLIN', 'WATER', 'XYLOPHONE', 
-  'YACHT', 'ZEBRA', 'REACT', 'VITES', 'GAMES', 'WORDS', 'LEXIS', 'SOLVE'
+  'ABLE', 'BAKE', 'CALM', 'DARK', 'EACH', 'FACE', 'GAME', 'HAND', 
+  'IDEA', 'JUMP', 'KIND', 'LOVE', 'MIND', 'NOTE', 'OPEN', 'PLAY', 
+  'QUIT', 'ROAD', 'SAFE', 'TIME', 'UPON', 'VERY', 'WORK', 'YEAR', 
+  'ZONE', 'CHAT', 'DEAL', 'FAST', 'GROW', 'HOME', 'JOIN', 'KEEP'
 ]
 
-const MainFeature = ({ targetWord = 'REACT' }) => {
+const MainFeature = ({ targetWord = 'FAST' }) => {
   const [attempts, setAttempts] = useState(Array(6).fill(''))
   const [currentAttempt, setCurrentAttempt] = useState(0)
   const [gameStatus, setGameStatus] = useState('IN_PROGRESS') // 'IN_PROGRESS', 'WON', 'LOST'
@@ -42,7 +42,7 @@ const MainFeature = ({ targetWord = 'REACT' }) => {
 
   // Handle letter input
   const handleLetterInput = (letter) => {
-    if (attempts[currentAttempt].length < 5) {
+    if (attempts[currentAttempt].length < 4) {
       const newAttempts = [...attempts]
       newAttempts[currentAttempt] = newAttempts[currentAttempt] + letter
       setAttempts(newAttempts)
@@ -62,9 +62,9 @@ const MainFeature = ({ targetWord = 'REACT' }) => {
   const submitGuess = () => {
     const currentGuess = attempts[currentAttempt]
     
-    // Check if word is 5 letters
-    if (currentGuess.length !== 5) {
-      showTemporaryMessage('Word must be 5 letters')
+    // Check if word is 4 letters
+    if (currentGuess.length !== 4) {
+      showTemporaryMessage('Word must be 4 letters')
       setShake(true)
       setTimeout(() => setShake(false), 500)
       return
@@ -152,7 +152,7 @@ const MainFeature = ({ targetWord = 'REACT' }) => {
 
   // Share results
   const shareResults = () => {
-    let result = `LexiSolve ${currentAttempt + 1}/6\n\n`
+    let result = `Word ${currentAttempt + 1}/6\n\n`
     
     for (let i = 0; i <= currentAttempt; i++) {
       for (let j = 0; j < attempts[i].length; j++) {
@@ -192,11 +192,11 @@ const MainFeature = ({ targetWord = 'REACT' }) => {
           {attempts.map((attempt, attemptIndex) => (
             <motion.div
               key={attemptIndex}
-              className={`grid grid-cols-5 gap-2 ${attemptIndex === currentAttempt && shake ? 'animate-shake' : ''}`}
+              className={`grid grid-cols-4 gap-2 ${attemptIndex === currentAttempt && shake ? 'animate-shake' : ''}`}
               animate={shake && attemptIndex === currentAttempt ? { x: [0, -10, 10, -10, 10, 0] } : {}}
               transition={{ duration: 0.5 }}
             >
-              {Array(5).fill(0).map((_, letterIndex) => (
+              {Array(4).fill(0).map((_, letterIndex) => (
                 <motion.div
                   key={letterIndex}
                   className={`letter-tile letter-${getLetterStatus(attemptIndex, letterIndex)}`}
