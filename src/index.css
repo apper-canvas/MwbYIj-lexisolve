@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-surface-800 dark:text-surface-100 antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary;
+  }
+  
+  .btn-outline {
+    @apply border border-surface-300 dark:border-surface-600 hover:bg-surface-100 dark:hover:bg-surface-700 focus:ring-surface-400;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2 rounded-lg border border-surface-300 dark:border-surface-600 bg-white dark:bg-surface-800 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-light;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-surface-800 rounded-xl shadow-card p-6 transition-all duration-300;
+  }
+  
+  .neu-card {
+    @apply rounded-xl bg-surface-50 dark:bg-surface-800 shadow-neu-light dark:shadow-neu-dark p-6 transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+}
+
+/* Game-specific styles */
+.letter-tile {
+  @apply w-14 h-14 flex items-center justify-center text-2xl font-bold uppercase border-2 transition-all duration-300;
+}
+
+.letter-correct {
+  @apply bg-green-500 text-white border-green-600;
+}
+
+.letter-misplaced {
+  @apply bg-yellow-500 text-white border-yellow-600;
+}
+
+.letter-incorrect {
+  @apply bg-surface-300 dark:bg-surface-700 text-surface-500 dark:text-surface-400 border-surface-400 dark:border-surface-600;
+}
+
+.letter-empty {
+  @apply border-surface-300 dark:border-surface-600;
+}
+
+.letter-filled {
+  @apply border-surface-500 dark:border-surface-400;
+}
+
+.keyboard-key {
+  @apply min-w-[40px] h-12 flex items-center justify-center rounded-lg font-medium transition-all duration-200 shadow-neu-light dark:shadow-neu-dark;
+}
